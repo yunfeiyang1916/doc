@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  shareProcessNamespace: true
+  hostAliases:
+    - ip: "10.1.2.3"
+      hostnames:
+        - "foo.remote"
+        - "bar.remote"
+  hostNetwork: true
+  hostIPC: true
+  containers:
+    - name: nginx
+      image: nginx:1.20
+    - name: shell
+      image: busybox
+      stdin: true
+      tty: true

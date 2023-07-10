@@ -1,0 +1,3 @@
+kind create cluster --config kind.yaml
+
+kind delete cluster
