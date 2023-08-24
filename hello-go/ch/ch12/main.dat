@@ -1,0 +1,124 @@
+//读写数据
+package main
+
+import (
+	"bufio"
+	"compress/gzip"
+	"fmt"
+	"io"
+	"io/ioutil"
+	"os"
+)
+
+//读取输入
+func readInput() {
+	var firstName, lastName, s string
+	var i int64
+	var f float32
+	input := "56.12/5212/Go"
+	format := "%f/%d/%s"
+	fmt.Println("请输入你的名字：")
+	//fmt.Scanf("%s %s", &firstName, &lastName)
+	//读取以空格分隔的数据
+	fmt.Scanln(&firstName, &lastName)
+	fmt.Printf("你好 %s %s\n", firstName, lastName)
+	fmt.Scanf("%d", &i)
+	fmt.Println(i)
+	fmt.Sscanf(input, format, &f, &i, &s)
+	fmt.Println("从字符串读到的值：", f, i, s)
+}
+
+//使用bufio包读取
+func readInput2() {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Println("请输入：")
+	input, err := reader.ReadString('\n')
+	if err == nil {
+		fmt.Println("你输入了：", input)
+	}
+	switch input {
+	case "nihao\r\n":
+		fmt.Println("你好：", input)
+	case "hehe\r\n":
+		fmt.Println("你好：", input)
+	default:
+		fmt.Println("default")
+	}
+}
+
+//文件读取
+func readFile() {
+	file, err := os.Open("main.go")
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	defer file.Close()
+	reader := bufio.NewReader(file)
+	for {
+		input, err := reader.ReadString('\n')
+		fmt.Println(input)
+		if err == io.EOF {
+			return
+		}
+	}
+}
+func writeFile() {
+	path1 := "main.go"
+	path2 := "main.dat"
+	buf, err := ioutil.ReadFile(path1)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "读取文件错误%s\n", err)
+	}
+	fmt.Println(string(buf))
+	err = ioutil.WriteFile(path2, buf, 0644)
+	if err != nil {
+		panic(err.Error())
+	}
+	//以只写模式打开文件，如果不存在则创建
+	outputFile, err := os.OpenFile("output.dat", os.O_WRONLY|os.O_CREATE, 0666)
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer outputFile.Close()
+	outputFile.WriteString("我先写入一条")
+	writer := bufio.NewWriter(outputFile)
+	str := "你好啊，哈哈！\n"
+	for i := 0; i < 10; i++ {
+		writer.WriteString(str)
+	}
+
+	writer.Flush()
+}
+
+//读取压缩包
+func readCompress() {
+	fName := "2017-01-09至2018-01-08搜索词报告搜索词_201801091408019847.zip"
+	var r *bufio.Reader
+	fi, err := os.Open(fName)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "%v,Can't open %s:error:%s\n", os.Args[0], fName, err)
+		os.Exit(1)
+	}
+	fz, err := gzip.NewReader(fi)
+	if err != nil {
+		r = bufio.NewReader(fi)
+	} else {
+		r = bufio.NewReader(fz)
+	}
+	for {
+		line, err := r.ReadString('\n')
+		if err != nil {
+			fmt.Println(err)
+			os.Exit(0)
+		}
+		fmt.Println(line)
+	}
+}
+func main() {
+	//readInput()
+	//readInput2()
+	//readFile()
+	writeFile()
+	//readCompress()
+}

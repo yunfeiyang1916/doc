@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<servers version="1">
+    <server>
+        <serverName>服务名称1</serverName>
+        <serverIP>192.168.1.2</serverIP>
+    </server>
+    <server>
+        <serverName>服务名称2</serverName>
+        <serverIP>127.0.0.1</serverIP>
+    </server>
+</servers>
