@@ -1,0 +1,27 @@
+name: "goods-web"
+host: "host.docker.internal"
+port: 8029
+tags: [ "oss-web","yunfeiyang" ]
+jwt:
+  key: "ssdeaqeeqq"
+redis:
+  host: "127.0.0.1"
+  port: 6379
+  expire: 300 # 单位秒
+consul:
+  host: "localhost"
+  port: 8500
+nacos:
+  host: "localhost"
+  port: 8848
+  group: "dev"
+  namespace: "4ee52c31-141b-4a20-bd64-e3b6618fa0d3"
+  dataid: "goods-web-config.json"
+  user: "nacos"
+  password: "nacos"
+oss:
+  key: "xxxx"
+  secret: "xxxx"
+  host: "http://bucket-name.oss-cn-hangzhou.aliyuncs.com"
+  callback_url: "http://88.88.88.88:8888"
+  upload_dir: "user-dir-prefix/"

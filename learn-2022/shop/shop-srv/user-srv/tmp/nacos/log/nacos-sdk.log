@@ -1,0 +1,23 @@
+2024-03-18T21:53:59.690+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<tmp/nacos/log>   cacheDir:<tmp/nacos/cache>
+2024-03-18T21:53:59.737+0800	[31mERROR[0m	nacos_server/nacos_server.go:199	api</v1/cs/configs>,method:<GET>, params:<{"dataId":"user-srv-config.json","group":"dev","tenant":"4ee52c31-141b-4a20-bd64-e3b6618fa0d3"}>, call domain error:<[404] config data not exist
+> , result:<config data not exist
+>
+2024-03-18T21:53:59.746+0800	[31mERROR[0m	nacos_server/nacos_server.go:199	api</v1/cs/configs>,method:<GET>, params:<{"dataId":"user-srv-config.json","group":"dev","tenant":"4ee52c31-141b-4a20-bd64-e3b6618fa0d3"}>, call domain error:<[404] config data not exist
+> , result:<config data not exist
+>
+2024-03-18T21:53:59.752+0800	[31mERROR[0m	nacos_server/nacos_server.go:199	api</v1/cs/configs>,method:<GET>, params:<{"dataId":"user-srv-config.json","group":"dev","tenant":"4ee52c31-141b-4a20-bd64-e3b6618fa0d3"}>, call domain error:<[404] config data not exist
+> , result:<config data not exist
+>
+2024-03-18T21:53:59.752+0800	[31mERROR[0m	config_client/config_client.go:202	get config from server error:[404] config data not exist
+ 
+2024-03-18T21:53:59.753+0800	[33mWARN[0m	config_client/config_client.go:207	[client.GetConfig] config not found, dataId: user-srv-config.json, group: dev, namespaceId: 4ee52c31-141b-4a20-bd64-e3b6618fa0d3.
+2024-03-18T21:54:41.506+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<tmp/nacos/log>   cacheDir:<tmp/nacos/cache>
+2024-03-18T21:59:04.523+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<tmp/nacos/log>   cacheDir:<tmp/nacos/cache>
+2024-03-18T22:00:29.205+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<tmp/nacos/log>   cacheDir:<tmp/nacos/cache>
+2024-03-18T22:01:20.134+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<tmp/nacos/log>   cacheDir:<tmp/nacos/cache>
+2024-03-18T22:02:54.076+0800	[34mINFO[0m	clients/client_factory.go:47	logDir:<tmp/nacos/log>   cacheDir:<tmp/nacos/cache>
+2024-03-18T22:02:57.789+0800	[34mINFO[0m	config_client/config_proxy.go:180	[client.ListenConfig] request params:map[Listening-Configs:user-srv-config.jsondev13edecbeb6d819052b688b72265b12ab4ee52c31-141b-4a20-bd64-e3b6618fa0d3 tenant:4ee52c31-141b-4a20-bd64-e3b6618fa0d3] header:map[Content-Type:application/x-www-form-urlencoded;charset=utf-8 Long-Pulling-Timeout:30000 Long-Pulling-Timeout-No-Hangup:true accessKey: secretKey:] 
+
+2024-03-18T22:02:57.801+0800	[34mINFO[0m	config_client/config_client.go:433	[client.ListenConfig] no change
+2024-03-18T22:02:57.819+0800	[34mINFO[0m	config_client/config_proxy.go:180	[client.ListenConfig] request params:map[Listening-Configs:user-srv-config.jsondev13edecbeb6d819052b688b72265b12ab4ee52c31-141b-4a20-bd64-e3b6618fa0d3 tenant:4ee52c31-141b-4a20-bd64-e3b6618fa0d3] header:map[Content-Type:application/x-www-form-urlencoded;charset=utf-8 Long-Pulling-Timeout:30000 accessKey: secretKey:] 
+

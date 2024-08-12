@@ -6,8 +6,10 @@ import (
 )
 
 func main() {
+	m := make(map[string]int, 10)
+	fmt.Println(m)
 	//concurrentMapTest1()
-	concurrentMapTest2()
+	//concurrentMapTest2()
 }
 
 // 并发写map会抛出：fatal error: concurrent map writes

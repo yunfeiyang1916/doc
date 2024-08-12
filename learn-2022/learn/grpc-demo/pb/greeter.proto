@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "person_validate.proto";
+
+option go_package = ".;pb";
+
+service Greeter{
+  rpc SayHello(HelloReq) returns(HelloResp);
+  // 带验证器
+  rpc SayPerson(Person) returns(Person);
+  // 服务端流模式，从服务端源源不断的获取
+  rpc GetStream(StreamReq) returns(stream StreamResp);
+  // 客户端流模式，客户端源源不断的向服务端推送
+  rpc PostStream(stream StreamReq) returns(StreamResp);
+  // 双向流模式
+  rpc Stream(stream StreamReq) returns(stream StreamResp);
+}
+
+message HelloReq{
+  string name = 1;
+}
+
+message HelloResp{
+  string reply = 1;
+}
+// 流请求
+message StreamReq{
+  string data = 1;
+}
+
+// 流响应
+message StreamResp{
+  string  data = 1;
+}
+

@@ -1,0 +1,403 @@
+2023/11/08 20:56:55 [INFO][server.go:40] bind: 0.0.0.0:6379, start listening...
+2023/11/08 20:58:05 [INFO][server.go:67] accepted link
+2023/11/08 20:59:07 [ERROR][server.go:82] require multi bulk protocol
+2023/11/08 20:59:07 [ERROR][server.go:82] require multi bulk protocol
+2023/11/08 20:59:07 [ERROR][server.go:82] require multi bulk protocol
+2023/11/08 21:09:55 [INFO][server.go:40] bind: 0.0.0.0:6379, start listening...
+2023/11/08 21:10:04 [INFO][server.go:67] accepted link
+2023/11/08 21:17:09 [INFO][server.go:40] bind: 0.0.0.0:6379, start listening...
+2023/11/08 21:17:17 [INFO][server.go:67] accepted link
+2023/11/08 21:17:37 [INFO][server.go:40] bind: 0.0.0.0:6379, start listening...
+2023/11/08 21:17:40 [INFO][server.go:67] accepted link
+2023/11/08 21:32:07 [ERROR][aof.go:140] exec err -ERR DB index is out of range
+
+2023/11/08 21:32:07 [ERROR][aof.go:140] exec err -ERR DB index is out of range
+
+2023/11/08 21:32:07 [ERROR][aof.go:140] exec err -ERR DB index is out of range
+
+2023/11/08 21:32:07 [ERROR][aof.go:140] exec err -ERR DB index is out of range
+
+2023/11/08 21:32:07 [ERROR][aof.go:140] exec err -ERR DB index is out of range
+
+2023/11/08 21:32:07 [ERROR][aof.go:140] exec err -ERR DB index is out of range
+
+2023/11/08 21:32:07 [ERROR][aof.go:140] exec err -ERR DB index is out of range
+
+2023/11/08 21:32:07 [INFO][server.go:40] bind: 0.0.0.0:6379, start listening...
+2023/11/08 21:41:13 [WARN][server.go:63] error occurs: runtime error: invalid memory address or nil pointer dereference
+goroutine 1 [running]:
+runtime/debug.Stack()
+	C:/Program Files/Go/src/runtime/debug/stack.go:24 +0x7a
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec.func1()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:63 +0x58
+panic({0x319360, 0x403f70})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x267
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).SaveCmdLine(0x0, 0x0, {0xc0000781e0, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:92 +0x36
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer.func1({0xc0000781e0, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:39 +0x6d
+github.com/yunfeiyang1916/doc/go-redis/database.execSet(0xc00006a780, {0xc000078158, 0x2, 0x2})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/string.go:39 +0x192
+github.com/yunfeiyang1916/doc/go-redis/database.(*DB).Exec(0xc00006a780, {0x34e150, 0xc00014a000}, {0xc000078140, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/database.go:47 +0x1e2
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec(0xc00006a760, {0x34e150, 0xc00014a000}, {0xc000078140, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:84 +0x4c5
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).LoadAof(0xc0000740c0, 0x0)
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:138 +0x615
+github.com/yunfeiyang1916/doc/go-redis/aof.NewPersister({0x34e120, 0xc00006a760})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:50 +0x10e
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:50 +0x35f
+github.com/yunfeiyang1916/doc/go-redis/redis/server.MakeHandler()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/redis/server/server.go:35 +0x2c
+main.main()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/main.go:61 +0x2fe
+
+2023/11/08 21:41:13 [ERROR][aof.go:140] exec err -Err unknown
+
+2023/11/08 21:41:13 [WARN][server.go:63] error occurs: runtime error: invalid memory address or nil pointer dereference
+goroutine 1 [running]:
+runtime/debug.Stack()
+	C:/Program Files/Go/src/runtime/debug/stack.go:24 +0x7a
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec.func1()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:63 +0x58
+panic({0x319360, 0x403f70})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x267
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).SaveCmdLine(0x0, 0x0, {0xc000078280, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:92 +0x36
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer.func1({0xc000078280, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:39 +0x6d
+github.com/yunfeiyang1916/doc/go-redis/database.execSet(0xc00006a780, {0xc0000781a8, 0x2, 0x2})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/string.go:39 +0x192
+github.com/yunfeiyang1916/doc/go-redis/database.(*DB).Exec(0xc00006a780, {0x34e150, 0xc00014a090}, {0xc000078190, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/database.go:47 +0x1e2
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec(0xc00006a760, {0x34e150, 0xc00014a090}, {0xc000078190, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:84 +0x4c5
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).LoadAof(0xc0000740c0, 0x0)
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:138 +0x615
+github.com/yunfeiyang1916/doc/go-redis/aof.NewPersister({0x34e120, 0xc00006a760})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:50 +0x10e
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:50 +0x35f
+github.com/yunfeiyang1916/doc/go-redis/redis/server.MakeHandler()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/redis/server/server.go:35 +0x2c
+main.main()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/main.go:61 +0x2fe
+
+2023/11/08 21:41:13 [ERROR][aof.go:140] exec err -Err unknown
+
+2023/11/08 21:41:13 [WARN][server.go:63] error occurs: runtime error: invalid memory address or nil pointer dereference
+goroutine 1 [running]:
+runtime/debug.Stack()
+	C:/Program Files/Go/src/runtime/debug/stack.go:24 +0x7a
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec.func1()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:63 +0x58
+panic({0x319360, 0x403f70})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x267
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).SaveCmdLine(0x0, 0x0, {0xc0000782d0, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:92 +0x36
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer.func1({0xc0000782d0, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:39 +0x6d
+github.com/yunfeiyang1916/doc/go-redis/database.execSet(0xc00006a780, {0xc00030c018, 0x2, 0x2})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/string.go:39 +0x192
+github.com/yunfeiyang1916/doc/go-redis/database.(*DB).Exec(0xc00006a780, {0x34e150, 0xc00014a120}, {0xc00030c000, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/database.go:47 +0x1e2
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec(0xc00006a760, {0x34e150, 0xc00014a120}, {0xc00030c000, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:84 +0x4c5
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).LoadAof(0xc0000740c0, 0x0)
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:138 +0x615
+github.com/yunfeiyang1916/doc/go-redis/aof.NewPersister({0x34e120, 0xc00006a760})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:50 +0x10e
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:50 +0x35f
+github.com/yunfeiyang1916/doc/go-redis/redis/server.MakeHandler()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/redis/server/server.go:35 +0x2c
+main.main()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/main.go:61 +0x2fe
+
+2023/11/08 21:41:13 [ERROR][aof.go:140] exec err -Err unknown
+
+2023/11/08 21:41:13 [WARN][server.go:63] error occurs: runtime error: invalid memory address or nil pointer dereference
+goroutine 1 [running]:
+runtime/debug.Stack()
+	C:/Program Files/Go/src/runtime/debug/stack.go:24 +0x7a
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec.func1()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:63 +0x58
+panic({0x319360, 0x403f70})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x267
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).SaveCmdLine(0x0, 0x0, {0xc000078320, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:92 +0x36
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer.func1({0xc000078320, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:39 +0x6d
+github.com/yunfeiyang1916/doc/go-redis/database.execSet(0xc00006a780, {0xc00030c068, 0x2, 0x2})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/string.go:39 +0x192
+github.com/yunfeiyang1916/doc/go-redis/database.(*DB).Exec(0xc00006a780, {0x34e150, 0xc00014a1b0}, {0xc00030c050, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/database.go:47 +0x1e2
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec(0xc00006a760, {0x34e150, 0xc00014a1b0}, {0xc00030c050, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:84 +0x4c5
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).LoadAof(0xc0000740c0, 0x0)
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:138 +0x615
+github.com/yunfeiyang1916/doc/go-redis/aof.NewPersister({0x34e120, 0xc00006a760})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:50 +0x10e
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:50 +0x35f
+github.com/yunfeiyang1916/doc/go-redis/redis/server.MakeHandler()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/redis/server/server.go:35 +0x2c
+main.main()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/main.go:61 +0x2fe
+
+2023/11/08 21:41:13 [ERROR][aof.go:140] exec err -Err unknown
+
+2023/11/08 21:41:13 [WARN][server.go:63] error occurs: runtime error: invalid memory address or nil pointer dereference
+goroutine 1 [running]:
+runtime/debug.Stack()
+	C:/Program Files/Go/src/runtime/debug/stack.go:24 +0x7a
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec.func1()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:63 +0x58
+panic({0x319360, 0x403f70})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x267
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).SaveCmdLine(0x0, 0x0, {0xc000078370, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:92 +0x36
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer.func1({0xc000078370, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:39 +0x6d
+github.com/yunfeiyang1916/doc/go-redis/database.execSet(0xc00006a780, {0xc000382018, 0x2, 0x2})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/string.go:39 +0x192
+github.com/yunfeiyang1916/doc/go-redis/database.(*DB).Exec(0xc00006a780, {0x34e150, 0xc00014a240}, {0xc000382000, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/database.go:47 +0x1e2
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec(0xc00006a760, {0x34e150, 0xc00014a240}, {0xc000382000, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:84 +0x4c5
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).LoadAof(0xc0000740c0, 0x0)
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:138 +0x615
+github.com/yunfeiyang1916/doc/go-redis/aof.NewPersister({0x34e120, 0xc00006a760})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:50 +0x10e
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:50 +0x35f
+github.com/yunfeiyang1916/doc/go-redis/redis/server.MakeHandler()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/redis/server/server.go:35 +0x2c
+main.main()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/main.go:61 +0x2fe
+
+2023/11/08 21:41:13 [ERROR][aof.go:140] exec err -Err unknown
+
+2023/11/08 21:41:13 [WARN][server.go:63] error occurs: runtime error: invalid memory address or nil pointer dereference
+goroutine 1 [running]:
+runtime/debug.Stack()
+	C:/Program Files/Go/src/runtime/debug/stack.go:24 +0x7a
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec.func1()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:63 +0x58
+panic({0x319360, 0x403f70})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x267
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).SaveCmdLine(0x0, 0x0, {0xc000382050, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:92 +0x36
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer.func1({0xc000382050, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:39 +0x6d
+github.com/yunfeiyang1916/doc/go-redis/database.execSet(0xc00006a780, {0xc0000783d8, 0x2, 0x2})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/string.go:39 +0x192
+github.com/yunfeiyang1916/doc/go-redis/database.(*DB).Exec(0xc00006a780, {0x34e150, 0xc000388000}, {0xc0000783c0, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/database.go:47 +0x1e2
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec(0xc00006a760, {0x34e150, 0xc000388000}, {0xc0000783c0, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:84 +0x4c5
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).LoadAof(0xc0000740c0, 0x0)
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:138 +0x615
+github.com/yunfeiyang1916/doc/go-redis/aof.NewPersister({0x34e120, 0xc00006a760})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:50 +0x10e
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:50 +0x35f
+github.com/yunfeiyang1916/doc/go-redis/redis/server.MakeHandler()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/redis/server/server.go:35 +0x2c
+main.main()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/main.go:61 +0x2fe
+
+2023/11/08 21:41:13 [ERROR][aof.go:140] exec err -Err unknown
+
+2023/11/08 21:41:13 [INFO][server.go:40] bind: 0.0.0.0:6379, start listening...
+2023/11/08 21:44:03 [WARN][server.go:71] error occurs: runtime error: invalid memory address or nil pointer dereference
+goroutine 1 [running]:
+runtime/debug.Stack()
+	C:/Program Files/Go/src/runtime/debug/stack.go:24 +0x7a
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec.func1()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:71 +0x58
+panic({0xf093c0, 0xff3f70})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x267
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).SaveCmdLine(0x0, 0x0, {0xc0000781e0, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:92 +0x36
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer.func1({0xc0000781e0, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:39 +0x6d
+github.com/yunfeiyang1916/doc/go-redis/database.execSet(0xc00006a780, {0xc000078158, 0x2, 0x2})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/string.go:39 +0x192
+github.com/yunfeiyang1916/doc/go-redis/database.(*DB).Exec(0xc00006a780, {0xf3e260, 0xc00014a000}, {0xc000078140, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/database.go:47 +0x1e2
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec(0xc00006a760, {0xf3e260, 0xc00014a000}, {0xc000078140, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:92 +0x4c5
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).LoadAof(0xc0000740c0, 0x0)
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:138 +0x615
+github.com/yunfeiyang1916/doc/go-redis/aof.NewPersister({0xf3e230, 0xc00006a760})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:50 +0x10e
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:50 +0x36f
+github.com/yunfeiyang1916/doc/go-redis/redis/server.MakeHandler()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/redis/server/server.go:35 +0x2c
+main.main()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/main.go:61 +0x2fe
+
+2023/11/08 21:44:03 [ERROR][aof.go:140] exec err -Err unknown
+
+2023/11/08 21:44:03 [WARN][server.go:71] error occurs: runtime error: invalid memory address or nil pointer dereference
+goroutine 1 [running]:
+runtime/debug.Stack()
+	C:/Program Files/Go/src/runtime/debug/stack.go:24 +0x7a
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec.func1()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:71 +0x58
+panic({0xf093c0, 0xff3f70})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x267
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).SaveCmdLine(0x0, 0x0, {0xc000078280, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:92 +0x36
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer.func1({0xc000078280, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:39 +0x6d
+github.com/yunfeiyang1916/doc/go-redis/database.execSet(0xc00006a780, {0xc0000781a8, 0x2, 0x2})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/string.go:39 +0x192
+github.com/yunfeiyang1916/doc/go-redis/database.(*DB).Exec(0xc00006a780, {0xf3e260, 0xc00014a090}, {0xc000078190, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/database.go:47 +0x1e2
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec(0xc00006a760, {0xf3e260, 0xc00014a090}, {0xc000078190, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:92 +0x4c5
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).LoadAof(0xc0000740c0, 0x0)
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:138 +0x615
+github.com/yunfeiyang1916/doc/go-redis/aof.NewPersister({0xf3e230, 0xc00006a760})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:50 +0x10e
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:50 +0x36f
+github.com/yunfeiyang1916/doc/go-redis/redis/server.MakeHandler()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/redis/server/server.go:35 +0x2c
+main.main()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/main.go:61 +0x2fe
+
+2023/11/08 21:44:03 [ERROR][aof.go:140] exec err -Err unknown
+
+2023/11/08 21:44:03 [WARN][server.go:71] error occurs: runtime error: invalid memory address or nil pointer dereference
+goroutine 1 [running]:
+runtime/debug.Stack()
+	C:/Program Files/Go/src/runtime/debug/stack.go:24 +0x7a
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec.func1()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:71 +0x58
+panic({0xf093c0, 0xff3f70})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x267
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).SaveCmdLine(0x0, 0x0, {0xc000078370, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:92 +0x36
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer.func1({0xc000078370, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:39 +0x6d
+github.com/yunfeiyang1916/doc/go-redis/database.execSet(0xc00006a780, {0xc0000782e8, 0x2, 0x2})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/string.go:39 +0x192
+github.com/yunfeiyang1916/doc/go-redis/database.(*DB).Exec(0xc00006a780, {0xf3e260, 0xc00014a120}, {0xc0000782d0, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/database.go:47 +0x1e2
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec(0xc00006a760, {0xf3e260, 0xc00014a120}, {0xc0000782d0, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:92 +0x4c5
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).LoadAof(0xc0000740c0, 0x0)
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:138 +0x615
+github.com/yunfeiyang1916/doc/go-redis/aof.NewPersister({0xf3e230, 0xc00006a760})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:50 +0x10e
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:50 +0x36f
+github.com/yunfeiyang1916/doc/go-redis/redis/server.MakeHandler()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/redis/server/server.go:35 +0x2c
+main.main()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/main.go:61 +0x2fe
+
+2023/11/08 21:44:03 [ERROR][aof.go:140] exec err -Err unknown
+
+2023/11/08 21:44:03 [WARN][server.go:71] error occurs: runtime error: invalid memory address or nil pointer dereference
+goroutine 1 [running]:
+runtime/debug.Stack()
+	C:/Program Files/Go/src/runtime/debug/stack.go:24 +0x7a
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec.func1()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:71 +0x58
+panic({0xf093c0, 0xff3f70})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x267
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).SaveCmdLine(0x0, 0x0, {0xc0000783c0, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:92 +0x36
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer.func1({0xc0000783c0, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:39 +0x6d
+github.com/yunfeiyang1916/doc/go-redis/database.execSet(0xc00006a780, {0xc000078338, 0x2, 0x2})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/string.go:39 +0x192
+github.com/yunfeiyang1916/doc/go-redis/database.(*DB).Exec(0xc00006a780, {0xf3e260, 0xc00014a1b0}, {0xc000078320, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/database.go:47 +0x1e2
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec(0xc00006a760, {0xf3e260, 0xc00014a1b0}, {0xc000078320, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:92 +0x4c5
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).LoadAof(0xc0000740c0, 0x0)
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:138 +0x615
+github.com/yunfeiyang1916/doc/go-redis/aof.NewPersister({0xf3e230, 0xc00006a760})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:50 +0x10e
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:50 +0x36f
+github.com/yunfeiyang1916/doc/go-redis/redis/server.MakeHandler()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/redis/server/server.go:35 +0x2c
+main.main()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/main.go:61 +0x2fe
+
+2023/11/08 21:44:03 [ERROR][aof.go:140] exec err -Err unknown
+
+2023/11/08 21:44:03 [WARN][server.go:71] error occurs: runtime error: invalid memory address or nil pointer dereference
+goroutine 1 [running]:
+runtime/debug.Stack()
+	C:/Program Files/Go/src/runtime/debug/stack.go:24 +0x7a
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec.func1()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:71 +0x58
+panic({0xf093c0, 0xff3f70})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x267
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).SaveCmdLine(0x0, 0x0, {0xc000078410, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:92 +0x36
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer.func1({0xc000078410, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:39 +0x6d
+github.com/yunfeiyang1916/doc/go-redis/database.execSet(0xc00006a780, {0xc00030c018, 0x2, 0x2})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/string.go:39 +0x192
+github.com/yunfeiyang1916/doc/go-redis/database.(*DB).Exec(0xc00006a780, {0xf3e260, 0xc00014a240}, {0xc00030c000, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/database.go:47 +0x1e2
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec(0xc00006a760, {0xf3e260, 0xc00014a240}, {0xc00030c000, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:92 +0x4c5
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).LoadAof(0xc0000740c0, 0x0)
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:138 +0x615
+github.com/yunfeiyang1916/doc/go-redis/aof.NewPersister({0xf3e230, 0xc00006a760})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:50 +0x10e
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:50 +0x36f
+github.com/yunfeiyang1916/doc/go-redis/redis/server.MakeHandler()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/redis/server/server.go:35 +0x2c
+main.main()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/main.go:61 +0x2fe
+
+2023/11/08 21:44:03 [ERROR][aof.go:140] exec err -Err unknown
+
+2023/11/08 21:44:03 [WARN][server.go:71] error occurs: runtime error: invalid memory address or nil pointer dereference
+goroutine 1 [running]:
+runtime/debug.Stack()
+	C:/Program Files/Go/src/runtime/debug/stack.go:24 +0x7a
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec.func1()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:71 +0x58
+panic({0xf093c0, 0xff3f70})
+	C:/Program Files/Go/src/runtime/panic.go:890 +0x267
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).SaveCmdLine(0x0, 0x0, {0xc000388000, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:92 +0x36
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer.func1({0xc000388000, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:39 +0x6d
+github.com/yunfeiyang1916/doc/go-redis/database.execSet(0xc00006a780, {0xc000078478, 0x2, 0x2})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/string.go:39 +0x192
+github.com/yunfeiyang1916/doc/go-redis/database.(*DB).Exec(0xc00006a780, {0xf3e260, 0xc000380000}, {0xc000078460, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/database.go:47 +0x1e2
+github.com/yunfeiyang1916/doc/go-redis/database.(*Server).Exec(0xc00006a760, {0xf3e260, 0xc000380000}, {0xc000078460, 0x3, 0x3})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:92 +0x4c5
+github.com/yunfeiyang1916/doc/go-redis/aof.(*Persister).LoadAof(0xc0000740c0, 0x0)
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:138 +0x615
+github.com/yunfeiyang1916/doc/go-redis/aof.NewPersister({0xf3e230, 0xc00006a760})
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/aof/aof.go:50 +0x10e
+github.com/yunfeiyang1916/doc/go-redis/database.NewStandaloneServer()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/database/server.go:50 +0x36f
+github.com/yunfeiyang1916/doc/go-redis/redis/server.MakeHandler()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/redis/server/server.go:35 +0x2c
+main.main()
+	D:/work/src/github.com/yunfeiyang1916/doc/go-redis/main.go:61 +0x2fe
+
+2023/11/08 21:44:03 [ERROR][aof.go:140] exec err -Err unknown
+
+2023/11/08 21:44:03 [INFO][server.go:40] bind: 0.0.0.0:6379, start listening...
+2023/11/08 21:44:35 [INFO][server.go:40] bind: 0.0.0.0:6379, start listening...
+2023/11/08 21:45:09 [INFO][server.go:40] bind: 0.0.0.0:6379, start listening...
+2023/11/08 21:45:18 [INFO][server.go:67] accepted link

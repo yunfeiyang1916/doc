@@ -1,0 +1,7 @@
+2023/11/06 22:36:26 [INFO][server.go:40] bind: 0.0.0.0:6379, start listening...
+2023/11/06 22:36:48 [INFO][server.go:67] accepted link
+2023/11/06 22:38:15 [ERROR][server.go:82] require multi bulk protocol
+2023/11/06 22:38:15 [ERROR][server.go:82] require multi bulk protocol
+2023/11/06 22:38:15 [ERROR][server.go:82] require multi bulk protocol
+2023/11/06 22:38:46 [ERROR][server.go:82] require multi bulk protocol
+2023/11/06 22:38:46 [ERROR][server.go:82] require multi bulk protocol

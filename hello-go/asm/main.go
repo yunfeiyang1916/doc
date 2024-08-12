@@ -1,9 +1,14 @@
 package main
 
-import "github.com/yunfeiyang1916/hello-go/asm/pkg"
+import (
+	"fmt"
+
+	"github.com/yunfeiyang1916/doc/hello-go/asm/pkg"
+)
 
 func main() {
-	println(pkg.Id, pkg.Name)
+	fmt.Println(pkg.Id, pkg.Name)
 	pkg.NameData[0] = 'd'
-	println(pkg.Name)
+	fmt.Println(pkg.Name)
+	pkg.PrintHello()
 }

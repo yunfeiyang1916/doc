@@ -1,0 +1,21 @@
+{
+  "name": "user-web",
+  "port": 8081,
+  "user_srv": {
+    "name": "user-srv",
+    "host": "127.0.0.1",
+    "port": 50051
+  },
+  "jwt": {
+    "key": "ssdeaqeeqq"
+  },
+  "redis": {
+    "host": "127.0.0.1",
+    "port": 6379,
+    "expire": 300
+  },
+  "consul": {
+    "host": "localhost",
+    "port": 8500
+  }
+}

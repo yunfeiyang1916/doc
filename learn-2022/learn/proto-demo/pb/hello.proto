@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+import "base.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = ".;main";
+
+
+service Hello{
+  // Hello
+  rpc Hello(HelloReq) returns(HelloResp);
+  rpc Ping(google.protobuf.Empty) returns(Pong);
+}
+
+message HelloReq {
+  // 名称
+  string  name = 1;
+  // 性别
+  Gender gender = 2;
+  // map类型
+  map<string, string> map = 4;
+  // 时间戳
+  google.protobuf.Timestamp add_time = 5;
+}
+
+message HelloResp{
+  string reply = 1;
+  // 内嵌message
+  message result{
+    string name = 1;
+    string url = 2;
+  }
+  repeated result list = 2;
+}
+
+enum Gender{
+  // 未知
+  Unknown = 0;
+  // 男性
+  Male = 1;
+  // 女性
+  Female = 2;
+}

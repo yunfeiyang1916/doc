@@ -1,0 +1,25 @@
+name: "order-srv"
+host: "0.0.0.0"
+port: 50054
+tags: [ "order-srv","yunfeiyang" ]
+mysql:
+  host: "localhost"
+  port: 3306
+  user: "root"
+  password: "123456"
+  db: "shop_order_srv"
+redis:
+  host: "127.0.0.1"
+  port: 6379
+  expire: 300 # 单位秒
+consul:
+  host: "localhost"
+  port: 8500
+goods_srv:
+  name: "goods-srv"
+  host: "127.0.0.1"
+  port: 50052
+inventory_srv:
+  name: "inventory-srv"
+  host: "127.0.0.1"
+  port: 50053

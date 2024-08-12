@@ -1,0 +1,17 @@
+name: "userop-srv"
+host: "0.0.0.0"
+port: 50055
+tags: [ "userop-srv","yunfeiyang" ]
+mysql:
+  host: "localhost"
+  port: 3306
+  user: "root"
+  password: "123456"
+  db: "shop_userop_srv"
+redis:
+  host: "127.0.0.1"
+  port: 6379
+  expire: 300 # 单位秒
+consul:
+  host: "localhost"
+  port: 8500

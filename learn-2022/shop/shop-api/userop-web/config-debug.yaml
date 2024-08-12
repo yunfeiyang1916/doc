@@ -1,0 +1,29 @@
+name: "userop-web"
+host: "host.docker.internal"
+port: 8084
+tags: [ "userop-web","yunfeiyang" ]
+goods_srv:
+  name: "goods-srv"
+  host: "127.0.0.1"
+  port: 50055
+userop_srv:
+  name: "userop_srv"
+  host: "127.0.0.1"
+  port: 50053
+jwt:
+  key: "ssdeaqeeqq"
+redis:
+  host: "127.0.0.1"
+  port: 6379
+  expire: 300 # 单位秒
+consul:
+  host: "localhost"
+  port: 8500
+nacos:
+  host: "localhost"
+  port: 8848
+  group: "dev"
+  namespace: "4ee52c31-141b-4a20-bd64-e3b6618fa0d3"
+  dataid: "userop-web-config.json"
+  user: "nacos"
+  password: "nacos"

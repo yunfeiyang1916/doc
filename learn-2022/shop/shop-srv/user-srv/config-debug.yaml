@@ -1,0 +1,21 @@
+name: "user-srv"
+host: "0.0.0.0"
+port: 50051
+tags: [ "user-srv","yunfeiyang" ]
+mysql:
+  host: "localhost"
+  port: 3306
+  user: "root"
+  password: "123456"
+  db: "shop_user_srv"
+consul:
+  host: "localhost"
+  port: 8500
+nacos:
+  host: "localhost"
+  port: 8848
+  group: "dev"
+  namespace: "4ee52c31-141b-4a20-bd64-e3b6618fa0d3"
+  dataid: "user-srv-config.json"
+  user: "nacos"
+  password: "nacos"

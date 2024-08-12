@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试跨域</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+<button type="button" id="query">请求数据</button>
+<img src="data:image/png;base64,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" />
+<div id="content" style="background-color: aquamarine; width: 300px;height: 500px"></div>
+</body>
+<script type="text/javascript">
+    $("#query").click(function () {
+        $.ajax({
+            url: "http://localhost:8081/u/v1/user/list",
+            dataType: "json",
+            type: "get",
+            beforeSend: function (request) {
+                request.setRequestHeader("x-token","eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJRCI6MSwiTmlja05hbWUiOiLlvKDkuIkiLCJBdXRob3JpdHlJZCI6MSwiZXhwIjoxNzEyNDQ5ODEzLCJpc3MiOiJ5dW5mZWl5YW5nIiwibmJmIjoxNzA5ODU3ODEzfQ.IaP9TusD1PsviaJ3PM_Sber1t8SCUrjto_D1IRfk1XA");
+            },
+            success: function (result) {
+                console.log(result.data);
+                $("#content").text(result.data);
+            },
+            error: function (data) {
+                alert("请求出错：" + data);
+            }
+        });
+    });
+</script>
+</html>
