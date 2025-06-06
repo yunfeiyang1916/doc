@@ -37,3 +37,5 @@ nacos:
   dataid: "order-web-config.json"
   user: "nacos"
   password: "nacos"
+otel_collector:
+  url: "http://127.0.0.1:14268/api/traces"

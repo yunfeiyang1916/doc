@@ -6,8 +6,8 @@ import (
 )
 
 func main() {
-	//defaultTest()
-	multCaseTest()
+	defaultTest()
+	//multCaseTest()
 }
 
 // 多个条件同时满足
@@ -37,7 +37,9 @@ func defaultTest() {
 		fmt.Println("case1")
 	case ch <- 1:
 		fmt.Println("case2")
-	default:
-		fmt.Println("default")
+	case <-time.After(time.Second):
+		fmt.Println("1 秒")
+		// default:
+		// 	fmt.Println("default")
 	}
 }

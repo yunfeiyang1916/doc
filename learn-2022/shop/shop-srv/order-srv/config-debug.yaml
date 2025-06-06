@@ -23,3 +23,8 @@ inventory_srv:
   name: "inventory-srv"
   host: "127.0.0.1"
   port: 50053
+rocketmq:
+  host: "127.0.0.1"
+  port: 9876
+otel_collector:
+  url: "http://127.0.0.1:14268/api/traces"

@@ -1,12 +1,14 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"os"
 	"os/signal"
 	"shop/shop-api/order-web/global"
 	"shop/shop-api/order-web/initialize"
 	"shop/shop-api/order-web/utils/register/consul"
+	"shop/toolkit/trace"
 	"syscall"
 
 	uuid "github.com/satori/go.uuid"
@@ -37,6 +39,9 @@ func main() {
 	if err := registryClient.Register(global.ServerConfig.Host, global.ServerConfig.Port, global.ServerConfig.Name, global.ServerConfig.Tags, serviceId); err != nil {
 		zap.S().Error("服务注册失败：", err.Error())
 	}
+	// 初始化tracer
+	traceShutdown := trace.InitTracer(global.ServerConfig.Name, global.ServerConfig.OTELCollectorConfig.Url)
+	defer traceShutdown(context.Background())
 	zap.S().Infof("启动服务，端口：%d", global.ServerConfig.Port)
 	go func() {
 		if err := r.Run(fmt.Sprintf(":%d", global.ServerConfig.Port)); err != nil {

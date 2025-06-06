@@ -12,6 +12,7 @@ import (
 )
 
 func InitEs() {
+	return
 	// 初始化连接
 	host := fmt.Sprintf("http://%s:%d", global.ServerConfig.EsInfo.Host, global.ServerConfig.EsInfo.Port)
 	logger := log.New(os.Stdout, "mxshop", log.LstdFlags)

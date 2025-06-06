@@ -12,6 +12,18 @@ import (
 )
 
 func InitSrvConn() {
+	host := global.ServerConfig.UserSrvInfo.Host
+	port := global.ServerConfig.UserSrvInfo.Port
+
+	// 暂时也保留全局单实例连接
+	conn, err := grpc.Dial(fmt.Sprintf("%s:%d", host, port), grpc.WithInsecure())
+	if err != nil {
+		zap.S().Fatal("[InitSrvConn] 连接 【商品服务失败】")
+	}
+	global.UserSrvClient = proto.NewUserClient(conn)
+}
+
+func InitSrvConn2() {
 	//host := global.ServerConfig.UserSrvInfo.Host
 	//port := global.ServerConfig.UserSrvInfo.Port
 	// 从注册中心获取

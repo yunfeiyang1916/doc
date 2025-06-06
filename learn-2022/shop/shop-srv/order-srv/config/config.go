@@ -1,5 +1,7 @@
 package config
 
+import "fmt"
+
 type MysqlConfig struct {
 	Host     string `mapstructure:"host" json:"host"`
 	Port     int    `mapstructure:"port" json:"port"`
@@ -45,15 +47,30 @@ type InventorySrvConfig struct {
 	Name string `mapstructure:"name" json:"name"`
 }
 
+type RocketMQConfig struct {
+	Host string `mapstructure:"host" json:"host"`
+	Port int    `mapstructure:"port" json:"port"`
+}
+
+func (r RocketMQConfig) GetAddr() string {
+	return fmt.Sprintf("%s:%d", r.Host, r.Port)
+}
+
+type OTELCollectorConfig struct {
+	Url string `mapstructure:"url" json:"url"`
+}
+
 type ServerConfig struct {
-	Name             string             `mapstructure:"name" json:"name"`
-	Host             string             `mapstructure:"host" json:"host"`
-	Port             int                `mapstructure:"port" json:"port"`
-	Tags             []string           `mapstructure:"tags" json:"tags"`
-	MysqlInfo        MysqlConfig        `mapstructure:"mysql" json:"mysql"`
-	RedisInfo        RedisConfig        `mapstructure:"redis" json:"redis"`
-	ConsulInfo       ConsulConfig       `mapstructure:"consul" json:"consul"`
-	NacosConfig      NacosConfig        `mapstructure:"nacos" json:"nacos"`
-	GoodsSrvInfo     GoodsSrvConfig     `mapstructure:"goods_srv" json:"goods_srv"`
-	InventorySrvInfo InventorySrvConfig `mapstructure:"inventory_srv" json:"inventory_srv"`
+	Name                string              `mapstructure:"name" json:"name"`
+	Host                string              `mapstructure:"host" json:"host"`
+	Port                int                 `mapstructure:"port" json:"port"`
+	Tags                []string            `mapstructure:"tags" json:"tags"`
+	MysqlInfo           MysqlConfig         `mapstructure:"mysql" json:"mysql"`
+	RedisInfo           RedisConfig         `mapstructure:"redis" json:"redis"`
+	ConsulInfo          ConsulConfig        `mapstructure:"consul" json:"consul"`
+	NacosConfig         NacosConfig         `mapstructure:"nacos" json:"nacos"`
+	GoodsSrvInfo        GoodsSrvConfig      `mapstructure:"goods_srv" json:"goods_srv"`
+	InventorySrvInfo    InventorySrvConfig  `mapstructure:"inventory_srv" json:"inventory_srv"`
+	RocketMQConfig      RocketMQConfig      `mapstructure:"rocketmq" json:"rocketmq"`
+	OTELCollectorConfig OTELCollectorConfig `mapstructure:"otel_collector" json:"otel_collector"`
 }

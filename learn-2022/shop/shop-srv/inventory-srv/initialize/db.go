@@ -27,7 +27,7 @@ func InitDB() {
 		panic(err)
 	}
 	global.DB = global.DB.Debug()
-	if err = global.DB.AutoMigrate(&model.Inventory{}); err != nil {
+	if err = global.DB.AutoMigrate(&model.Inventory{}, &model.StockSellDetail{}); err != nil {
 		panic("DB.AutoMigrate error,err=" + err.Error())
 	}
 }

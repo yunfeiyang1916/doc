@@ -12,6 +12,9 @@ import (
 	"shop/shop-srv/inventory-srv/utils"
 	"syscall"
 
+	"github.com/apache/rocketmq-client-go/v2"
+	"github.com/apache/rocketmq-client-go/v2/consumer"
+
 	"github.com/hashicorp/consul/api"
 	uuid "github.com/satori/go.uuid"
 	"google.golang.org/grpc"
@@ -41,7 +44,30 @@ func main() {
 	}
 	// 注册到consul并启动服务
 	//registerConsulAndStartServer(server, lis)
-	startServer(server, lis)
+	//startServer(server, lis)
+
+	// 监听库存归还的消息
+	c, err := rocketmq.NewPushConsumer(consumer.WithNameServer([]string{global.ServerConfig.RocketMQConfig.GetAddr()}),
+		consumer.WithGroupName("inventory-srv-group"))
+	if err != nil {
+		panic(err)
+	}
+	// 订阅消息
+	if err = c.Subscribe("order_reback", consumer.MessageSelector{}, handler.AutoReback); err != nil {
+		panic(err)
+	}
+	if err = c.Start(); err != nil {
+		panic(err)
+	}
+
+	go func() {
+		startServer(server, lis)
+	}()
+	// 接收终止信号
+	quit := make(chan os.Signal)
+	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
+	<-quit
+	c.Shutdown()
 }
 
 // 直接启动服务

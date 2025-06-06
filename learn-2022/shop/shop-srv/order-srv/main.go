@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"net"
 	"os"
@@ -10,10 +11,12 @@ import (
 	"shop/shop-srv/order-srv/initialize"
 	"shop/shop-srv/order-srv/proto"
 	"shop/shop-srv/order-srv/utils"
+	"shop/toolkit/trace"
 	"syscall"
 
 	"github.com/hashicorp/consul/api"
 	uuid "github.com/satori/go.uuid"
+	"go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/health"
 	"google.golang.org/grpc/health/grpc_health_v1"
@@ -32,8 +35,10 @@ func main() {
 		global.ServerConfig.Port, _ = utils.GetFreePort()
 	}
 	zap.S().Info(global.ServerConfig)
-
-	server := grpc.NewServer()
+	// 初始化tracer
+	traceShutdown := trace.InitTracer(global.ServerConfig.Name, global.ServerConfig.OTELCollectorConfig.Url)
+	defer traceShutdown(context.Background())
+	server := grpc.NewServer(grpc.StatsHandler(otelgrpc.NewServerHandler()))
 	proto.RegisterOrderServer(server, &handler.OrderService{})
 	// 注册服务健康检查
 	grpc_health_v1.RegisterHealthServer(server, health.NewServer())
@@ -44,6 +49,7 @@ func main() {
 	// 注册到consul并启动服务
 	//registerConsulAndStartServer(server, lis)
 	startServer(server, lis)
+
 }
 
 // 直接启动服务

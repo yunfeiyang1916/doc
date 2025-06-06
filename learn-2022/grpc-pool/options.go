@@ -4,6 +4,8 @@ import (
 	"context"
 	"time"
 
+	"go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc"
+
 	"google.golang.org/grpc/keepalive"
 
 	"google.golang.org/grpc"
@@ -77,7 +79,7 @@ func Dial(address string) (*grpc.ClientConn, error) {
 			Time:                KeepAliveTime,
 			Timeout:             KeepAliveTimeout,
 			PermitWithoutStream: true,
-		}))
+		}), grpc.WithStatsHandler(otelgrpc.NewClientHandler()))
 }
 
 // 该函数用于创建一个简单的、带有预定义配置的gRPC连接

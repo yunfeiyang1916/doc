@@ -49,18 +49,23 @@ type NacosConfig struct {
 	Group     string `mapstructure:"group"`
 }
 
+type OTELCollectorConfig struct {
+	Url string `mapstructure:"url" json:"url"`
+}
+
 type ServerConfig struct {
-	Name             string       `mapstructure:"name" json:"name"`
-	Host             string       `mapstructure:"host" json:"host"`
-	Tags             []string     `mapstructure:"tags" json:"tags"`
-	Port             int          `mapstructure:"port" json:"port"`
-	InventorySrvInfo SrvConfig    `mapstructure:"inventory_srv" json:"inventory_srv"`
-	GoodsSrvInfo     SrvConfig    `mapstructure:"goods_srv" json:"goods_srv"`
-	OrderSrvInfo     SrvConfig    `mapstructure:"order_srv" json:"order_srv"`
-	JWTInfo          JWTConfig    `mapstructure:"jwt" json:"jwt"`
-	AliSmsInfo       AliSmsConfig `mapstructure:"sms" json:"sms"`
-	AliPayInfo       AlipayConfig `mapstructure:"alipay" json:"alipay"`
-	RedisInfo        RedisConfig  `mapstructure:"redis" json:"redis"`
-	ConsulInfo       ConsulConfig `mapstructure:"consul" json:"consul"`
-	NacosConfig      NacosConfig  `mapstructure:"nacos" json:"nacos"`
+	Name                string              `mapstructure:"name" json:"name"`
+	Host                string              `mapstructure:"host" json:"host"`
+	Tags                []string            `mapstructure:"tags" json:"tags"`
+	Port                int                 `mapstructure:"port" json:"port"`
+	InventorySrvInfo    SrvConfig           `mapstructure:"inventory_srv" json:"inventory_srv"`
+	GoodsSrvInfo        SrvConfig           `mapstructure:"goods_srv" json:"goods_srv"`
+	OrderSrvInfo        SrvConfig           `mapstructure:"order_srv" json:"order_srv"`
+	JWTInfo             JWTConfig           `mapstructure:"jwt" json:"jwt"`
+	AliSmsInfo          AliSmsConfig        `mapstructure:"sms" json:"sms"`
+	AliPayInfo          AlipayConfig        `mapstructure:"alipay" json:"alipay"`
+	RedisInfo           RedisConfig         `mapstructure:"redis" json:"redis"`
+	ConsulInfo          ConsulConfig        `mapstructure:"consul" json:"consul"`
+	NacosConfig         NacosConfig         `mapstructure:"nacos" json:"nacos"`
+	OTELCollectorConfig OTELCollectorConfig `mapstructure:"otel_collector" json:"otel_collector"`
 }

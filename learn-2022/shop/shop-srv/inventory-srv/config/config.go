@@ -1,5 +1,7 @@
 package config
 
+import "fmt"
+
 type MysqlConfig struct {
 	Host     string `mapstructure:"host" json:"host"`
 	Port     int    `mapstructure:"port" json:"port"`
@@ -30,14 +32,23 @@ type NacosConfig struct {
 	DataId    string `mapstructure:"dataid"`
 	Group     string `mapstructure:"group"`
 }
+type RocketMQConfig struct {
+	Host string `mapstructure:"host" json:"host"`
+	Port int    `mapstructure:"port" json:"port"`
+}
+
+func (r RocketMQConfig) GetAddr() string {
+	return fmt.Sprintf("%s:%d", r.Host, r.Port)
+}
 
 type ServerConfig struct {
-	Name        string       `mapstructure:"name" json:"name"`
-	Host        string       `mapstructure:"host" json:"host"`
-	Port        int          `mapstructure:"port" json:"port"`
-	Tags        []string     `mapstructure:"tags" json:"tags"`
-	MysqlInfo   MysqlConfig  `mapstructure:"mysql" json:"mysql"`
-	RedisInfo   RedisConfig  `mapstructure:"redis" json:"redis"`
-	ConsulInfo  ConsulConfig `mapstructure:"consul" json:"consul"`
-	NacosConfig NacosConfig  `mapstructure:"nacos" json:"nacos"`
+	Name           string         `mapstructure:"name" json:"name"`
+	Host           string         `mapstructure:"host" json:"host"`
+	Port           int            `mapstructure:"port" json:"port"`
+	Tags           []string       `mapstructure:"tags" json:"tags"`
+	MysqlInfo      MysqlConfig    `mapstructure:"mysql" json:"mysql"`
+	RedisInfo      RedisConfig    `mapstructure:"redis" json:"redis"`
+	ConsulInfo     ConsulConfig   `mapstructure:"consul" json:"consul"`
+	NacosConfig    NacosConfig    `mapstructure:"nacos" json:"nacos"`
+	RocketMQConfig RocketMQConfig `mapstructure:"rocketmq" json:"rocketmq"`
 }

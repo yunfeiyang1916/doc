@@ -15,3 +15,6 @@ redis:
 consul:
   host: "localhost"
   port: 8500
+rocketmq:
+  host: "127.0.0.1"
+  port: 9876

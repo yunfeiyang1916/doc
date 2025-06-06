@@ -23,7 +23,7 @@ func GetEnvInfo(env string) bool {
 }
 
 // 从本地读取nacos配置，然后从nacos中读取其他配置
-func InitConfig2() {
+func InitConfig() {
 	configFileName := "config-debug.yaml"
 
 	v := viper.New()
@@ -95,7 +95,7 @@ func InitConfig2() {
 	}
 }
 
-func InitConfig() {
+func InitConfig2() {
 	//debug := GetEnvInfo("MXSHOP_DEBUG")
 
 	//configFileName := fmt.Sprintf("%s-pro.yaml", configFilePrefix)

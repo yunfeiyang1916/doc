@@ -8,6 +8,11 @@ import (
 	"sync"
 	"time"
 
+	"google.golang.org/grpc/codes"
+
+	"github.com/grpc-ecosystem/go-grpc-middleware/v2/interceptors/retry"
+
+	"google.golang.org/grpc"
 	"google.golang.org/grpc/status"
 
 	"github.com/yunfeiyang1916/doc/learn-2022/learn/grpc-demo/share"
@@ -15,7 +20,6 @@ import (
 	"google.golang.org/grpc/metadata"
 
 	"github.com/yunfeiyang1916/doc/learn-2022/learn/grpc-demo/pb"
-	"google.golang.org/grpc"
 )
 
 // 自定义rpc的认证
@@ -41,7 +45,7 @@ func main() {
 		return invoker(ctx, method, req, reply, cc, opts...)
 	})
 
-	conn, err := grpc.Dial("127.0.0.1:8000", grpc.WithInsecure(), interceptor, grpc.WithPerRPCCredentials(&customRPCCredentials{}))
+	conn, err := grpc.Dial("127.0.0.1:8000", grpc.WithInsecure(), interceptor, grpc.WithPerRPCCredentials(&customRPCCredentials{}), grpc.WithUnaryInterceptor(retry.UnaryClientInterceptor()))
 	if err != nil {
 		panic(err)
 	}
@@ -52,9 +56,10 @@ func main() {
 	ctx = metadata.NewOutgoingContext(ctx, md)
 
 	// 增加超时控制
-	ctx, _ = context.WithTimeout(ctx, 1*time.Second)
+	//ctx, _ = context.WithTimeout(ctx, 1*time.Second)
 	client := pb.NewGreeterClient(conn)
-	resp, err := client.SayHello(ctx, &pb.HelloReq{Name: "张三"})
+	// 设置重试
+	resp, err := client.SayHello(ctx, &pb.HelloReq{Name: "张三"}, retry.WithMax(3), retry.WithPerRetryTimeout(1*time.Second), retry.WithCodes(codes.Unknown, codes.DeadlineExceeded, codes.Unavailable))
 	if err != nil {
 		st, ok := status.FromError(err)
 		if !ok {

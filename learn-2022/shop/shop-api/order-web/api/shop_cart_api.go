@@ -15,9 +15,13 @@ import (
 )
 
 func GetCartList(c *gin.Context) {
+	ctx := c.Request.Context()
 	//获取购物车商品
-	userId, _ := c.Get("userId")
-
+	uidStr := c.Query("uid")
+	uid, err := strconv.ParseUint(uidStr, 10, 64)
+	if err != nil {
+		uid = 1
+	}
 	conn, err := global.OrderSrvConnPool.Get()
 	if err != nil {
 		HandleGrpcErrorToHttp(err, c)
@@ -25,8 +29,8 @@ func GetCartList(c *gin.Context) {
 	}
 	defer conn.Close()
 
-	rsp, err := proto.NewOrderClient(conn.Value()).CartItemList(context.Background(), &proto.UserInfo{
-		Id: int32(userId.(uint)),
+	rsp, err := proto.NewOrderClient(conn.Value()).CartItemList(ctx, &proto.UserInfo{
+		Id: int32(uid),
 	})
 	if err != nil {
 		zap.S().Errorw("[List] 查询 【购物车列表】失败")
@@ -53,7 +57,7 @@ func GetCartList(c *gin.Context) {
 	defer goodsConn.Close()
 
 	//请求商品服务获取商品信息
-	goodsRsp, err := goodsProto.NewGoodsClient(goodsConn.Value()).BatchGetGoods(context.Background(), &goodsProto.BatchGoodsIdInfo{
+	goodsRsp, err := goodsProto.NewGoodsClient(goodsConn.Value()).BatchGetGoods(ctx, &goodsProto.BatchGoodsIdInfo{
 		Id: ids,
 	})
 	if err != nil {

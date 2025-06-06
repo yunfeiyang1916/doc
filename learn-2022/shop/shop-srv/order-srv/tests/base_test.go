@@ -5,6 +5,8 @@ import (
 	"shop/shop-srv/order-srv/proto"
 	"testing"
 
+	"go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc"
+
 	"google.golang.org/grpc"
 )
 
@@ -15,7 +17,7 @@ var (
 
 func Init() {
 	var err error
-	conn, err = grpc.Dial("127.0.0.1:50054", grpc.WithInsecure())
+	conn, err = grpc.Dial("127.0.0.1:50054", grpc.WithInsecure(), grpc.WithStatsHandler(otelgrpc.NewClientHandler()))
 	if err != nil {
 		panic(err)
 	}
@@ -27,7 +29,8 @@ func TestCreateCartItem(t *testing.T) {
 	r, err := client.CreateCartItem(context.Background(), &proto.CartItemRequest{
 		UserId:  1,
 		Nums:    1,
-		GoodsId: 421,
+		GoodsId: 422,
+		Checked: true,
 	})
 	if err != nil {
 		panic(err)

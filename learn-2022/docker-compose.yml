@@ -28,39 +28,210 @@ services:
   #      - "8848:8848"
   #      - "9848:9848"
 
-  elasticsearch:
-    image: elasticsearch:7.10.1  #镜像
-    container_name: elk_elasticsearch  #定义容器名称
-    restart: always  #开机启动，失败也会一直重启
-    environment:
-      - "cluster.name=elasticsearch" #设置集群名称为elasticsearch
-      - "discovery.type=single-node" #以单一节点模式启动
-      - "ES_JAVA_OPTS=-Xms512m -Xmx1024m" #设置使用jvm内存大小
-    volumes:
-      - ./data/elk/elasticsearch/plugins:/usr/share/elasticsearch/plugins #插件文件挂载
-    #      - /data/elk/elasticsearch/data:/usr/share/elasticsearch/data #数据文件挂载
-    ports:
-      - "9200:9200"
-      - "9300:9300"
-  kibana:
-    image: kibana:7.10.1
-    container_name: elk_kibana
-    restart: always
-    depends_on:
-      - elasticsearch #kibana在elasticsearch启动之后再启动
-    environment:
-      - ELASTICSEARCH_URL=http://elasticsearch:9200 #设置访问elasticsearch的地址
-    ports:
-      - "5601:5601"
-#  logstash:
-#    image: logstash:7.10.1
-#    container_name: elk_logstash
+  #  elasticsearch:
+  #    image: elasticsearch:7.10.1  #镜像
+  #    container_name: elk_elasticsearch  #定义容器名称
+  #    restart: always  #开机启动，失败也会一直重启
+  #    environment:
+  #      - "cluster.name=elasticsearch" #设置集群名称为elasticsearch
+  #      - "discovery.type=single-node" #以单一节点模式启动
+  #      - "ES_JAVA_OPTS=-Xms512m -Xmx1024m" #设置使用jvm内存大小
+  #    volumes:
+  #      - ./data/elk/elasticsearch/plugins:/usr/share/elasticsearch/plugins #插件文件挂载
+  #    #      - /data/elk/elasticsearch/data:/usr/share/elasticsearch/data #数据文件挂载
+  #    ports:
+  #      - "9200:9200"
+  #      - "9300:9300"
+  #  kibana:
+  #    image: kibana:7.10.1
+  #    container_name: elk_kibana
+  #    restart: always
+  #    depends_on:
+  #      - elasticsearch #kibana在elasticsearch启动之后再启动
+  #    environment:
+  #      - ELASTICSEARCH_URL=http://elasticsearch:9200 #设置访问elasticsearch的地址
+  #    ports:
+  #      - "5601:5601"
+  #  logstash:
+  #    image: logstash:7.10.1
+  #    container_name: elk_logstash
+  #    restart: always
+  #    volumes:
+  #      - /data/elk/logstash/logstash-springboot.conf:/usr/share/logstash/pipeline/logstash.conf #挂载logstash的配置文件
+  #    depends_on:
+  #      - elasticsearch #kibana在elasticsearch启动之后再启动
+  #    links:
+  #      - elasticsearch:es #可以用es这个域名访问elasticsearch服务
+  #    ports:
+  #      - 4560:4560
+  #  rmqnamesrv:
+  #    image: foxiswho/rocketmq:server
+  #    container_name: rmqnamesrv
+  #    ports:
+  #      - 9876:9876
+  ##    volumes:
+  ##      - ./logs:/opt/logs
+  ##      - ./store:/opt/store
+  #    networks:
+  #      rmq:
+  #        aliases:
+  #          - rmqnamesrv
+  #
+  #  rmqbroker:
+  #    image: foxiswho/rocketmq:broker
+  #    container_name: rmqbroker
+  #    ports:
+  #      - 10909:10909
+  #      - 10911:10911
+  #    volumes:
+  ##      - ./logs:/opt/logs
+  ##      - ./store:/opt/store
+  #      - ./data/rocketmq/conf/broker.conf:/etc/rocketmq/broker.conf
+  #    environment:
+  #      NAMESRV_ADDR: "rmqnamesrv:9876"
+  #      JAVA_OPTS: " -Duser.home=/opt"
+  #      JAVA_OPT_EXT: "-server -Xms256m -Xmx256m -Xmn256m"
+  #    command: mqbroker -c /etc/rocketmq/broker.conf
+  #    depends_on:
+  #      - rmqnamesrv
+  #    networks:
+  #      rmq:
+  #        aliases:
+  #          - rmqbroker
+  #
+  #  rmqconsole:
+  #    image: styletang/rocketmq-console-ng
+  #    container_name: rmqconsole
+  #    ports:
+  #      - 8080:8080
+  #    environment:
+  #      JAVA_OPTS: "-Drocketmq.namesrv.addr=rmqnamesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false"
+  #    depends_on:
+  #      - rmqnamesrv
+  #    networks:
+  #      rmq:
+  #        aliases:
+  #          - rmqconsole
+
+#  jaeger:
+#    image: jaegertracing/all-in-one:latest
+#    ports:
+#      - "16686:16686"
+#      - "4317:4317"
+#      - "4318:4318"
+#      - "14268:14268"
+#    environment:
+#      - LOG_LEVEL=debug
+
+#  kong-database:
+#    image: postgres:13.4
+#    container_name: kong-database
+#    ports:
+#      - 15432:5432
+#    environment:
+#      - POSTGRES_USER=kong
+#      - POSTGRES_DB=kong
+#      - POSTGRES_PASSWORD=kong
+#
+#
+#  #  kong-migrations:
+#  #    image: kong
+#  #    environment:
+#  #      - KONG_DATABASE=postgres
+#  #      - KONG_PG_HOST=kong-database
+#  #      - KONG_PG_PASSWORD=kong
+#  #    command: kong migrations bootstrap
+#  #    restart: on-failure
+#
+#  kong:
+#    image: kong
+#    container_name: kong
+#    environment:
+#      - LC_CTYPE=en_US.UTF-8
+#      - LC_ALL=en_US.UTF-8
+#      - KONG_DATABASE=postgres
+#      - KONG_PG_HOST=kong-database
+#      - KONG_PG_USER=kong
+#      - KONG_PG_PASSWORD=kong
+#      - KONG_PROXY_ACCESS_LOG=/dev/stdout
+#      - KONG_ADMIN_ACCESS_LOG=/dev/stdout
+#      - KONG_PROXY_ERROR_LOG=/dev/stderr
+#      - KONG_ADMIN_ERROR_LOG=/dev/stderr
+#      - KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl
+#      - KONG_ADMIN_GUI_URL=http://host.docker.internal:8002
+#      - KONG_PROXY_LISTEN=0.0.0.0:8000, 0.0.0.0:8443 ssl
+#      #- KONG_DNS_RESOLVER=192.168.10.32:8600
+#    restart: on-failure
+##    volumes:
+##      - /data/kong/kong.conf:/etc/kong/kong.conf #挂载配置文件
+#    ports:
+#      - 8000:8000
+#      - 8443:8443
+#      - 8001:8001
+#      - 8002:8002
+#      - 8444:8444
+#  konga:
+#    image: pantsel/konga
+#    ports:
+#      - 1337:1337
+#    container_name: konga
+#    environment:
+#      - NODE_ENV=production
+#  cloudbeaver:
+#    image: dbeaver/cloudbeaver
+#    ports:
+#      - 8978:8978
+#    container_name: cloudbeaver
+
+#  prometheus:
+#    image: prom/prometheus
+#    container_name: prometheus
+#    hostname: prometheus
 #    restart: always
 #    volumes:
-#      - /data/elk/logstash/logstash-springboot.conf:/usr/share/logstash/pipeline/logstash.conf #挂载logstash的配置文件
-#    depends_on:
-#      - elasticsearch #kibana在elasticsearch启动之后再启动
-#    links:
-#      - elasticsearch:es #可以用es这个域名访问elasticsearch服务
+#      - ./data/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
 #    ports:
-#      - 4560:4560
+#      - "9090:9090"
+#
+#  grafana:
+#    image: grafana/grafana
+#    container_name: grafana
+#    hostname: grafana
+#    restart: always
+#    ports:
+#      - "3000:3000"
+#
+#  node-exporter:
+#    image: prom/node-exporter
+#    container_name: node-exporter
+#    hostname: node-exporter
+#    restart: always
+#    ports:
+#      - "9100:9100"
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    ports:
+      - 3000:8080
+    environment:
+      - 'OLLAMA_BASE_URL=http://host.docker.internal:11434'
+      - 'WEBUI_SECRET_KEY='
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    restart: unless-stopped
+
+  lobe-chat:
+    image: lobehub/lobe-chat
+    container_name: lobe-chat
+    restart: always
+    ports:
+      - '3210:3210'
+    environment:
+      OPENAI_API_KEY: sk-xxxx
+      OPENAI_PROXY_URL: https://api-proxy.com/v1
+      ACCESS_CODE: lobe66
+networks:
+  rmq:
+    name: rmq
+    driver: bridge

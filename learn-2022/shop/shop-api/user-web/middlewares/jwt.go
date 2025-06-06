@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"shop/shop-api/user-web/global"
 	"shop/shop-api/user-web/models"
+	"strings"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -26,6 +27,10 @@ func JWTAuth() gin.HandlerFunc {
 			c.JSON(http.StatusUnauthorized, map[string]string{"msg": "请登录"})
 			c.Abort()
 			return
+		}
+		hval := strings.Fields(token)
+		if len(hval) >= 2 {
+			token = hval[1]
 		}
 		j := NewJWT()
 		claims, err := j.ParseToken(token)

@@ -1,0 +1,24 @@
+# 全局配置
+global:
+  scrape_interval: 60s
+  evaluation_interval: 60s
+  # scrape_timeout is set to the global default (10s).
+# 加载一次规则，并根据全局“评估间隔”定期评估它们。
+rule_files:
+  - "/etc/prometheus/rules.yml"
+# 控制Prometheus监视哪些资源
+# 默认配置中，有一个名为prometheus的作业，它会收集Prometheus服务器公开的时间序列数据。
+scrape_configs:
+  # 作业名称将作为标签“job=<job_name>`添加到此配置中获取的任何数据。
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+        labels:
+          instance: prometheus
+  - job_name: 'node'
+    static_configs:
+      - targets: ['host.docker.internal:9100']
+        labels:
+          env: dev
+          role: docker
+          instance: node

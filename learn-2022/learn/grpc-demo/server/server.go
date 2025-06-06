@@ -97,7 +97,7 @@ func (g *GreeterService) SayHello(ctx context.Context, req *pb.HelloReq) (*pb.He
 	} else {
 		log.Println("没有metadata数据")
 	}
-	time.Sleep(time.Second)
+	time.Sleep(2 * time.Second)
 	return &pb.HelloResp{Reply: "Hello " + req.Name}, nil
 }
 
